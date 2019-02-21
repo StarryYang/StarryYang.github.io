@@ -1,0 +1,144 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: pink;
+  color: #fff;
+  font-size: 12px;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* 顶部导航样式 */
+header {
+  height: 40px;
+  line-height: 40px;
+  background: black;
+  position: relative;
+  overflow: hidden;
+}
+/* 定义第一个span的animation：时长 动画名字 匀速 循环 正常播放 */
+.first-marquee {
+  -webkit-animation: 25s first-marquee linear infinite normal;
+  animation: 25s first-marquee linear infinite normal;
+  padding-right: 70%;
+}
+@keyframes first-marquee {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  /* 向左移动 */
+  100% {
+    -webkit-transform: translate3d(-200%, 0, 0);
+    transform: translate3d(-200%, 0, 0);
+    display: none;
+  }
+}
+.second-marquee {
+  /* 因为要在第一个span播完之前就得出现第二个span，所以就延迟12s才播放 */
+  -webkit-animation: 25s first-marquee linear 12s infinite normal;
+  animation: 25s first-marquee linear 12s infinite normal;
+  padding-right: 53%;
+}
+@keyframes second-marquee {
+  0% {
+    -webkit-transform: translate3d(0%, 0, 0);
+    transform: translate3d(0%, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(-200%, 0, 0);
+    transform: translate3d(-200%, 0, 0);
+    display: none;
+  }
+}
+.spar {
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  height: 100%;
+  width: 100%;
+}
+.container {
+  position: relative;
+  padding: 0 0 0 20%;
+  min-height: 100vh;
+}
+.l {
+  position: absolute;
+  width: 20%;
+  z-index: 3;
+  left: 0;
+  min-height: 100vh;
+}
+li.active a {
+  color: -webkit-link;
+}
+@media screen and (min-width: 900px) {
+  .l {
+    width: 120px;
+  }
+  .container {
+    padding-left: 120px;
+  }
+}
+.l li {
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.l a {
+  text-decoration: none;
+  display: block;
+  color: #fff;
+}
+.r {
+  padding-top: 5px;
+  margin-left: 10px;
+}
+.item {
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 0 3px 0 #ccc;
+  margin: 10px;
+  padding: 10px;
+}
+.item h3 {
+  margin: 0;
+  padding: 0;
+  height: 20px;
+  line-height: 20px;
+  padding-left: 10px;
+  border-left: 3px solid pink;
+  color: pink;
+}
+.item h6 {
+  margin: 0.25rem 0;
+  padding: 0;
+}
+.item p {
+  color: #333;
+}
+.footer {
+  margin: 30px;
+  text-align: center;
+}
+.footer img {
+  width: 100px;
+  height: auto;
+  margin: 0 10px;
+  display: inline-block;
+}
+.item img {
+  width: 100px;
+  display: block;
+}
