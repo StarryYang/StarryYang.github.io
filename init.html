@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>前端宝典</title>
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+
+  <body>
+    <!-- 左侧菜单 -->
+    <header>
+      <div class="spar first-marquee">
+        每天学习一点点，技术进步一点点，薪资就涨一点点
+      </div>
+      <div class="spar second-marquee">
+        每天学习一点点，技术进步一点点，薪资就涨一点点
+      </div>
+    </header>
+    <div class="container">
+      <ul class="l">
+        <li><a href="./index.html">首页</a></li>
+        <li><a href="./notice.html">新手上路</a></li>
+        <li class="active"><a href="#">样式初始化</a></li>
+        <li><a href="./h5.html">h5新特性</a></li>
+        <li><a href="./js.html">js学习曲线</a></li>
+        <li><a href="./css.html">css进阶</a></li>
+        <li><a href="./plus.html">插件分装</a></li>
+        <li><a href="./jq.html">jQuery</a></li>
+        <li><a href="./into.html">个人简介</a></li>
+        <li><a href="./an.html">特殊案例</a></li>
+        <li><a href="https://cn.vuejs.org/">vue</a></li>
+        <li><a href="https://react.docschina.org/">React</a></li>
+        <li><a href="https://www.angular.cn/">angular</a></li>
+      </ul>
+      <div class="r">
+        <div class="item">
+          <h3 class="title" id="init">样式初始化原理</h3>
+          <ul>
+            <li>
+              <h6>
+                <a href="#init">为什么要样式初始化？</a>
+              </h6>
+              <p>
+                通常我们所看到的页面的字体大小、字体颜色、背景色、图片等都可以通过我们编写css来控制标签的样式；然而，如果没有初始化样式时，我们的页面会在不同的浏览器中表现不一致；尤其在移动端开发，比较棘手；于是前辈们提出，统一初始化样式，然后再去编写样式，这样完美解决了样式不一致的表现问题。其原理可以说就是在请求我们的样式之前，放一个统一样式文件，引入它就可以了；如大家熟知的common.css、base.css等；
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div class="item">
+          <h3 class="title">初始化样式下载</h3>
+          <ul>
+            <li>
+              <h6>
+                <a href="./css/baidu.css">百度初始化样式</a>
+              </h6>
+              <p>
+                此样式摘自百度网，初始化样式根据自己的项目来做，仅供参考
+              </p>
+            </li>
+            <li>
+              <h6>
+                <a href="./css/taobao.css">淘宝网初始化样式</a>
+              </h6>
+              <p>
+                此样式摘自淘宝网，初始化样式根据自己的项目来做，仅供参考
+              </p>
+            </li>
+            <li>
+              <h6>
+                <a href="./css/base.css">推荐样式</a>
+              </h6>
+              <p>
+                此样式是自己实战积累所得，初始化样式根据自己的项目来做，仅供参考
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div class="item">
+          <h3 class="title">移动端适配推荐</h3>
+          <ul>
+            <li>
+              <h6>
+                <a href="./js/window.min.js">window.js</a>
+              </h6>
+              <p>
+                默认1rem=75px;，需要修改请自己修改
+              </p>
+            </li>
+            <li>
+              <h6>
+                <a href="https://www.npmjs.com/"
+                  >vue脚手架适配组件postcss-pxtorem</a
+                >
+              </h6>
+              <p>
+                可以把px转成rem;使用方法如下:<br />
+                $ npm install postcss-pxtorem -D<br />
+                2、修改根目录 .postcssrc.js<br />
+                文件 找到 plugins 属性新增pxtorem的设置 "postcss-pxtorem": {
+                "rootValue": 32, "propList": ["*"] }<br />
+                按照上述配置项目后，即可在开发中直接使用 px 单位开发。<br />
+                例如设计给出的设计图是 750 * 1136，那么可以直接在页面中写
+                <br />body { width: 750px; height: 1136px; } 将被转换为 body {
+                widht: 23.4375rem; height: 35.5rem; }<br />
+
+                <span class="red"
+                  >注意：此方法支持import 和
+                  .vue单文件中style。暂不支持style中使用@import url();</span
+                >
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div class="item">
+          <h3 class="title">学习导师</h3>
+          <ul>
+            <li id="teacher">
+              <h6>
+                <a href="#teacher">拜师专人指点</a>
+              </h6>
+              <p>
+                扫一扫下方二维码，备注：前端学习，带你进入500人的大群一起学习前端，时刻解答你的问题
+                <img src="./imgs/t.jpg" alt="" />
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- 底部部分 -->
+    <div class="footer">
+      <h3>打赏一下</h3>
+      <img src="./imgs/w.jpg" alt="微信扫一扫" />
+      <img src="./imgs/p.jpg" alt="支付宝扫一扫" />
+    </div>
+  </body>
+</html>

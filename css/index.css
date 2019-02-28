@@ -142,3 +142,6 @@ li.active a {
   width: 100px;
   display: block;
 }
+.red {
+  color: red;
+}
