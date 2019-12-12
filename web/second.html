@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>济宁博物馆可视化专家系统</title>
+	<link rel="stylesheet" href="//at.alicdn.com/t/font_1522000_su4dv2q9557.css">
+	<link rel="stylesheet" href="./css/swiper.min.css">
+	<link rel="stylesheet" href="./css/number.css">
+	<link rel="stylesheet" href="./css/second.css">
+</head>
+<body>
+	<div id="app" v-cloak>	
+		<header>
+			<h3>济宁市博物馆数据统计交互展示系统</h3>
+		</header>
+		<div class="weather" v-if="weather&&air">
+			<div class="item" v-if="weather">
+				<img :src="'./imgs/weather/'+weather.cond_code+'.png'" alt=""><span class="wen" :style="{color:wlist[windex]}">{{weather.tmp}}℃</span>
+			</div>
+			<div class="item" v-if="air">
+				<i class="iconfont iconshuye" :class="{'you':air.aqi<=50,'liang':air.aqi>50&&air.aqi<=100,'qingdu':air.aqi>100&&air.aqi<=150,'zhongdu':air.aqi>150&&air.aqi<=200,'yan':air.aqi>200&&air.aqi<=300,'chao':air.aqi>300}"></i>
+			
+					<span>{{air.aqi}}</span>
+					<span class="p" :class="{'you':air.aqi<=50,'liang':air.aqi>50&&air.aqi<=100,'qingdu':air.aqi>100&&air.aqi<=150,'zhongdu':air.aqi>150&&air.aqi<=200,'yan':air.aqi>200&&air.aqi<=300,'chao':air.aqi>300}">{{air.qlty}}</span>
+				
+				
+			</div>
+		</div>
+		<div class="week-wrapper" v-if="day&&time&&week">
+			<span class="date">{{day}}</span>
+			<span class="time">{{time}}</span>
+			<span class="week">{{week}}</span>
+		</div>
+		<video  id="myvideo"  autoplay="autoplay" loop muted preload src="video.mp4?rel=0&amp;autoplay=1" >
+			<source src="video.mp4?rel=0&amp;autoplay=1" type="video/mp4">
+      <!-- <source src="../video/v.ogg" type="video/ogg"> -->
+	</video>
+		<!-- 左侧部分 -->
+		<div class="left">
+			<div class="list-item">
+				<h3>参观路线比例</h3>
+				<div id="echart-0"></div>
+			</div>
+			<div class="list-item">
+				<h3>热门展厅排行</h3>
+				<div id="echart-1"></div>
+			</div>
+			<div class="list-item">
+				<h3>热门展品</h3>
+				<div class="tagcloud" id="tagcloud">
+            <svg id="tagcloudSvg" :width="tagOption.width" :height="tagOption.height">
+              <a :href="tag.href" v-for="tag,i in tags">
+                <text
+                  :x="tag.x"
+                  :y="tag.y"
+                  :fill="((60+tag.z)/120)<0.35?'#999':tag.color"
+                  :font-size="20 * (600/(600-tag.z))"
+                  :fill-opacity="((60+tag.z)/120)"
+                >{{tag.text}}</text>
+              </a>
+            </svg>
+          </div>	
+				
+			</div>
+		</div>
+		<!-- 底部 -->
+		<div class="bottom">
+			<div class="list-item">
+				<h3>服务驿站订单统计</h3>
+				<div class="bottom-list">
+					<div class="items">
+						<h4>租赁中订单</h4>
+						<p><span class="nums">6</span>单</p>
+					</div>
+					<div class="items">
+						<h4>待结算订单</h4>
+						<p><span class="nums">6</span>单</p>
+					</div>
+					<div class="items">
+						<h4>可租借设备</h4>
+						<p><span class="nums">126</span>单</p>
+					</div>
+					<div class="items">
+						<h4>需维修设备</h4>
+						<p><span class="nums">76</span>单</p>
+					</div>
+				</div>
+				<div id="echart-3"></div>
+			</div>
+		</div>
+		<!-- 右侧部分 -->
+		<div class="right">
+			<div class="list-item">
+				<h3>展厅客流热力</h3>
+				<div class="container swiper-container" id="swiper">
+					<div class="swiper-wrapper" >
+						<div class="swiper-slide">
+							<div class="title">
+								<h1>1F <small>正常</small></h1>
+							</div>
+							<!-- <div class="total-wrapper">
+								<h4>服务驿站</h4>
+								
+							</div> -->
+							<!-- 热力图区域 -->
+							<div class="hot-map" id="hotMap-1" style=" background-image: url(imgs/1F.png);"></div>
+						</div>
+						<div class="swiper-slide">
+							<div class="title">
+								<h1>2F <small>正常</small></h1>
+							</div>
+							<div class="total-wrapper">
+								<div class="serve">
+
+								</div>
+							</div>
+							<!-- 热力图区域 -->
+							<div class="hot-map" id="hotMap-2" style=" background-image: url(imgs/2F.png);"></div>
+						</div>
+						<div class="swiper-slide">
+							<div class="title">
+								<h1>3F <small>正常</small></h1>
+							</div>
+							<!-- <div class="total-wrapper">
+								<h4>服务驿站</h4>
+								
+							</div> -->
+							<!-- 热力图区域 -->
+							<div class="hot-map" id="hotMap-3" style=" background-image: url(imgs/3F.png);"></div>
+						</div>
+						<div class="swiper-slide">
+							<div class="title">
+								<h1>4F <small>正常</small></h1>
+							</div>
+							<!-- <div class="total-wrapper">
+								<h4>服务驿站</h4>
+								
+							</div> -->
+							<!-- 热力图区域 -->
+							<div class="hot-map" id="hotMap-4" style=" background-image: url(imgs/4F.png);"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="list-item">
+				<h3>设备租赁及电量信息</h3>
+				<div class="zl">
+					<div class="zl_right">
+						<div class="zl_item" v-for="(item,index) in lists" :class="{'active':item.status==1}" :key="index">
+							<div class="d" :style="{width:(16*(item.dian/100))+'px'}" :class="{'active':item.dian!=100}"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<script src="./js/jquery-1.12.4.min.js"></script>
+	<script src="./js/heatmap.min.js"></script>
+	<script>
+	 $.noConflict();
+	</script>
+	<script src="./js/jquery.waypoints.min.js"></script>
+	<script src="./js/jquery.countup.min.js"></script>
+	<script src="./js/number.js"></script>
+	<script src="js/echarts.min.js"></script>
+	<script src="./js/world.js"></script>
+	<script src="js/count_data.js"> </script>
+	<script src="./js/swiper3.4.2.jquery.min.js"></script>
+	
+	<script src="./js/vue.min.2.2.2.js"></script>
+	<script src="./js/second.js"></script>
+</body>
+</html>
