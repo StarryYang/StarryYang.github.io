@@ -1,0 +1,30 @@
+*{
+	padding:0;
+	margin:0;
+	box-sizing: border-box;
+	user-select: none;
+}
+[v-cloak]{
+	display: none;
+}
+html,body{
+	font-family: 'PingFang SC ','Microsoft YaHei';
+	font-size:12px;
+	color:#fff;
+	overflow:hidden;
+	width:1366px;
+	height: 768px;
+	background: RGBA(8, 8, 13, 1);
+	position: relative;
+}
+#lun{
+	overflow:hidden;
+	width:1366px;
+	height: 768px;
+}
+#lun iframe{
+	width:1366px;
+	height: 768px;
+	display: block;
+	margin:0;
+}
